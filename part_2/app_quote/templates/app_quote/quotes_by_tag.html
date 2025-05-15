@@ -1,0 +1,19 @@
+<!-- filepath: c:\GitHub\pytraining-1\2 - Web\Module 10 - Основи роботи з Django\home-work\quotes\app_quote\templates\app_quote\quotes_by_tag.html -->
+{% extends "app_quote/base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h3>Viewing tag:
+            <a href = "{% url 'app_quote:quotes-by-tag' tag.name %}"> {{ tag.name }} </a>
+        </h3>
+        
+        <!-- відображення цитат -->
+        {% include 'app_quote/partials/quote_section.html' %}
+    </div>
+
+    <!-- Блок "Top Ten Tags" -->
+    {% include 'app_quote/partials/top_10_tags.html' %}
+</div>
+
+{% endblock %}

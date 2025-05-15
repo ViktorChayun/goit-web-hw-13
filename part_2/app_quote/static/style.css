@@ -1,0 +1,222 @@
+.alert-error, .errorlist {
+    color: crimson;
+}
+
+.alert-success {
+    color: green;
+}
+
+/* Custom page CSS  view-source:http://quotes.toscrape.com/static/main.css */
+body {
+    font-family: sans-serif;
+  }
+  
+  .container{
+    max-width:100%;
+    margin-right:auto;
+    margin-left:auto;
+    padding-left:15px;
+    padding-right:15px;
+  }
+
+  .container .text-muted {
+    margin: 20px 0;
+  }
+  
+  .tags-box {
+    text-align: right;
+  }
+  
+  .tags-box h2 {
+    margin-top: 0px;
+  }
+  
+  .tag-item {
+    display: block;
+    margin: 4px;
+  }
+  
+  .quote {
+    padding: 10px;
+    margin-bottom: 30px;
+    border: 2px solid #f01f1f;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px #d08797;
+  }
+  
+  .quote small.author {
+    font-weight: bold;
+    color: #3677E8;
+  }
+  
+  .quote span.text {
+    display: block;
+    margin-bottom: 5px;
+    font-size: large;
+    font-style: italic;
+  }
+  
+  .quote .tags {
+    margin-top: 10px;
+  }
+
+  .quote .actions {
+    margin-top: 10px;
+    font-size: small;
+  }
+  
+  .tag {
+    padding: 2px 4px;
+    margin-right: 3px;
+    border-radius: 5px;
+    color: white;
+    font-size: small;
+    background-color: #7CA3E6;
+  }
+  
+  a.tag:hover {
+    text-decoration: none;
+    color: rgb(226, 19, 29);
+  }
+  
+  .tag-count {
+    font-size: 10px; /* Зменшений розмір шрифту */
+    color: #979595; /* Сірий колір для меншої помітності */
+    margin-left: 5px; /* Відступ від назви тегу */
+  }
+
+  .tags-10-list {
+    list-style-type: none !important;  /* Прибирає маркери (точки) зі списку */
+    justify-content: center;
+    padding: 0; /* Прибирає відступи всередині списку */
+    margin: 0; /* Прибирає зовнішні відступи списку */
+  }
+
+  /* Sticky footer styles */
+  html {
+    position: relative;
+    min-height: 100%;
+  }
+  
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+  }
+  
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 6em;
+    background-color: #f5f5f5;
+  }
+  
+  .error {
+    color: red;
+  }
+  
+  .header-box {
+    padding-bottom: 40px;
+  }
+  
+  .header-box p {
+    margin-top: 30px;
+    float: right;
+  }
+  
+  .author-details  {
+    width: 80%;
+  }
+  
+  .author-description {
+    text-align: justify;
+    margin-bottom: 20px;
+  }
+  
+  ul.pager {
+    margin-bottom: 100px;
+  }
+  
+  .copyright {
+    text-align: center;
+  }
+  
+  .zyte {
+    color: #b02cce;
+  }
+  
+  .creation-time {
+    font-size: small;
+    color: #def298;
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    background-color: #50494a; /* Колір лінії */
+    margin: 10px 0; /* Відступи зверху і знизу */
+}
+
+.pagination {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.pagination .step-links a {
+  margin: 0 5px;
+  padding: 5px 10px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  color: #007bff;
+}
+
+.pagination .step-links a:hover {
+  background-color: #f0f0f0;
+}
+
+.pagination .current {
+  margin: 0 5px;
+  padding: 5px 10px;
+  font-weight: bold;
+  color: #39d9e7;
+}
+
+.col-md-8{
+  width:66%
+}
+
+.col-md-4{
+  width:33%
+}
+
+.col-md-8 .col-md-4{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+.row {
+  flex-wrap: nowrap; /* Дозволяє переносити елементи на новий рядок, якщо вони не поміщаються */
+  margin-left:-10px;
+  margin-right: 10px;
+  display: flex; /* Додає flexbox для вирівнювання елементів */
+}
+
+.quote-pagination-form {
+  margin-bottom: 15px; /* Відступ знизу для форми */
+  display: flex; /* Встановлює флекс-контейнер */
+  align-items: center; /* Вирівнює елементи по вертикалі */
+  gap: 10px; /* Відступ між підписом і випадаючим списком */
+  font-size: 14px;
+}
+
+.quote-pagination-form select {
+  font-size: 14px;
+  width: fit-content; /* Автоматична ширина відповідно до тексту опцій */
+  max-width: 100%; /* Обмеження максимальної ширини, щоб не виходило за межі контейнера */
+  white-space: nowrap; /* Забороняє перенос тексту */
+  line-height: 1; /* Зменшує висоту рядка */
+  height: auto; /* Автоматична висота відповідно до вмісту */
+}

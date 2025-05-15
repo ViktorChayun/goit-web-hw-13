@@ -1,0 +1,11 @@
+<div class="col-md-4 tags-box">
+    <h2>Top 10 Tags</h2>
+    <div class="tags-10-list">
+        {% for tag in top_tags %}
+            <li>
+                <a href="{% url 'app_quote:quotes-by-tag' tag.name %}" style="font-size: {{ tag.font_size }}px;" class="tag">{{ tag.name }}</a>
+                <span class="tag-count"> ({{ tag.cnt }} quotes)</span>
+            </li>
+        {% endfor %}
+    </div>
+</div>

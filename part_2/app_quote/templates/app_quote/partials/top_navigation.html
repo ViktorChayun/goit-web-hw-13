@@ -1,0 +1,29 @@
+<nav style="margin-bottom: 20px; border-bottom: 2px solid; padding-left: 30px">
+    <ul>
+        <li><a href="{% url 'app_quote:main' %}" role="button">Home</a></li>
+        {% if user.is_authenticated %}
+            {% if request.resolver_match.url_name == 'author-detail' %}
+            <li><a href="{% url 'app_quote:author-edit' author.id %}" role="button">Edit</a></li>
+            <li><a href="{% url 'app_quote:author-delete' author.id %}" role="button">Delete</a></li>
+            {% endif %}
+        {% endif %}
+    </ul>
+    
+    {% if user.is_authenticated %}
+    <ul>
+        <li><a href="{% url 'app_quote:quote' %}" role="button">Add Quote</a></li>
+        <li><a href="{% url 'app_quote:tag' %}" role="button">Add Tag</a></li>
+        <li><a href="{% url 'app_quote:author' %}" role="button">Add Author</a></li>
+        <li><a href="{% url 'app_quote:scrap-data' %}" role="button">Scrap data</a></li>
+    </ul>
+    <ul>
+        <li>Welcome <b>{{ user.username }}!</b></li>
+        <li><a href="{% url 'users:logout' %}" role="button">Logout</a></li>
+    </ul>
+    {% else %}
+    <ul>
+        <li><a href="{% url 'users:signup' %}" role="button">Sign Up</a></li>
+        <li><a href="{% url 'users:login' %}" role="button">Login</a></li>
+    </ul>
+    {% endif %}
+</nav>

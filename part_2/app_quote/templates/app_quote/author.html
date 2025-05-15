@@ -1,0 +1,59 @@
+{% extends "app_quote/base.html" %}
+
+{% block content %}
+
+<form method="POST" action="{% if form.instance.pk %}{% url 'app_quote:author-edit' form.instance.pk %}{% else %}{% url 'app_quote:author' %}{% endif %}">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Add Author</h1>
+
+            <input type="hidden" name="id" value="{{ form.instance.pk }}">
+            <div style="padding: 10px">
+                <label> Author:
+                    {{form.fullname}}
+                </label>
+                <span>{{ form.errors.name }}</span>
+            </div>
+            
+            <div style="padding: 10px">
+                <label> Date of Birth:
+                    {{form.born_date}}
+                </label>
+                <span>{{ form.errors.date_of_birth }}</span>
+            </div>
+
+            <div style="padding: 10px">
+                <label> Born location:
+                    {{form.born_location}}
+                </label>
+                <span>{{ form.errors.date_of_birth }}</span>
+            </div>
+            
+            <div style="padding: 10px">
+                <label> Description:
+                    {{form.description}}
+                </label>
+                <span>{{ form.errors.date_of_birth }}</span>
+            </div>
+        
+            <div class="grid">
+                <button type="submit">Submit</button>
+                <button type="reset" class="secondary">Reset</button>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <h2>My authors</h2>
+            <ul class="tags-list">
+                {% for author in authors %}
+                    <li>  
+                        <a href="{% url 'app_quote:author-detail' author.id %}">{{ author.fullname }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+</form>
+{% endblock %}

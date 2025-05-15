@@ -1,0 +1,17 @@
+{% extends "app_quote/base.html" %} 
+
+{% block content%}
+
+<div class="row">
+    <div class="col-md-8">
+        <h1>Quotes to Scrape</h1>
+        
+        <!-- відображення цитат -->
+        {% include 'app_quote/partials/quote_section.html' %}
+    </div>
+    
+    <!-- Блок "Top Ten Tags" -->
+    {% include 'app_quote/partials/top_10_tags.html' %}
+</div>
+
+{% endblock %}

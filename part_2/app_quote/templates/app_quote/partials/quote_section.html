@@ -1,0 +1,64 @@
+<!-- Форма для вибору кількості цитат на сторінку -->
+<form method="get" class="quote-pagination-form">
+    <label for="quotes_per_page">Quotes per page:</label>
+    <select name="quotes_per_page" id="quotes_per_page" onchange="this.form.submit()">
+        <option value="5" {% if request.GET.quotes_per_page == '5' %}selected{% endif %}>5</option>
+        <option value="10" {% if request.GET.quotes_per_page == '10' %}selected{% endif %}>10</option>
+        <option value="20" {% if request.GET.quotes_per_page == '20' %}selected{% endif %}>20</option>
+        <option value="50" {% if request.GET.quotes_per_page == '50' %}selected{% endif %}>50</option>
+    </select>
+</form>
+
+<!-- Відображення цитат -->
+{% for quote in page_obj %}
+    <div class="quote" itemscope itemtype="http://schema.org/CreativeWork">
+        <span class="text" itemprop="text">
+            {{ quote.quote }}
+        </span>
+
+        <span>by 
+            <small class="author" itemprop="author"> 
+                <a href="{% url 'app_quote:author-detail' quote.author.id %}">{{ quote.author.fullname }}</a>
+            </small>
+        </span>
+        
+        <div class="tags">
+            Tags:
+            <meta class="keywords" itemprop="keywords"/> 
+            {% for tag in quote.tags.all %}
+                <a class="tag" href="{% url 'app_quote:quotes-by-tag' tag.name %}"> {{tag.name}} </a>
+            {% endfor %}
+        </div>
+        
+        <div class="actions">
+            {% if user.is_authenticated %}
+                <a href="{% url 'app_quote:quote-detail' quote.id %}">Detail</a>
+                <a href="{% url 'app_quote:quote-edit' quote.id %}">Edit</a>
+                <a href="{% url 'app_quote:quote-delete' quote.id %}">Delete</a>
+            {% endif %}
+        </div>
+    </div>
+{% empty %}
+    <p>No quotes found for this tag.</p>
+{% endfor %}
+
+<!-- Блок пагінації -->
+{% if page_obj.paginator.num_pages %}
+<nav class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1&quotes_per_page={{ request.GET.quotes_per_page }}">First</a>
+            <a href="?page={{ page_obj.previous_page_number }}&quotes_per_page={{ request.GET.quotes_per_page }}">Previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}&quotes_per_page={{ request.GET.quotes_per_page }}">Next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}&quotes_per_page={{ request.GET.quotes_per_page }}">Last</a>
+        {% endif %}
+    </span>
+</nav>
+{% endif %}

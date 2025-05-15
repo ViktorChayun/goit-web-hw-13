@@ -1,0 +1,20 @@
+services:
+  redis:
+    image: redis
+    container_name: redis-1
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+  postgres:
+    image: postgres
+    container_name: postgres-1
+    environment:
+      POSTGRES_DB: goit_hw13
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 567234
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped

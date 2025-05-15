@@ -1,0 +1,34 @@
+{% extends "app_quote/base.html" %}
+
+{% block content %}
+
+<form method="POST" action="{% url 'app_quote:tag' %}">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Add Tag</h1>
+            <div style="padding: 10px">
+                <label>Enter the tag name:
+                    {{form.name}}
+                </label>
+                <span>{{ form.errors.name }}</span>
+            </div>
+            <div class="grid col-md-8" style="padding: 10px">
+                <button type="submit">Submit</button>
+                <button type="reset" class="secondary">Reset</button>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <h2>My tags</h2>
+            <ul class="tags-list">
+                {% for tag in tags %}
+                    <a class="tag" href="{% url 'app_quote:quotes-by-tag' tag.name %}"> {{tag.name}} </a>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+</form>
+
+{% endblock %}

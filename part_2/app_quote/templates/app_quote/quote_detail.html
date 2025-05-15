@@ -1,0 +1,27 @@
+{% extends "app_quote/base.html" %} 
+{% load extract_tags %} 
+
+{% block content %}
+
+<h1>{{quote.name}}</h1>
+<p>
+  Quote:
+    <blockquote>{{quote.quote}}</blockquote>
+</p>
+
+<p>
+  Author: <a href="{% url 'app_quote:author-detail' quote.author.id %}">{{ quote.author.fullname }}</a>
+</p>
+
+<div class="tags">
+  Tags:
+  <meta class="keywords" itemprop="keywords"/> 
+  {% for tag in quote.tags.all %}
+      <a class="tag" href="{% url 'app_quote:quotes-by-tag' tag.name %}"> {{tag.name}} </a>
+  {% endfor %}
+</div>
+
+<div style="font-size: small;">
+  Time of creation: <kbd>{{quote.created}}</kbd>
+</div>
+{% endblock %}
