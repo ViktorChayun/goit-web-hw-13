@@ -2,7 +2,7 @@ from typing import Optional, List
 from pydantic_settings import BaseSettings
 from pathlib import Path
 
-CONFIG_FILE = Path(__file__).parent / 'config.env'
+CONFIG_FILE = Path(__file__).parent / '.env'
 
 
 class Settings(BaseSettings):
