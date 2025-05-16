@@ -73,7 +73,7 @@ alembic upgrade head
 ```
 
 7. створи/онови файл конфігурації для `part 1`
-%GitHub%\goit-web-hw-13\part_1\src\configuration\config.env
+%GitHub%\goit-web-hw-13\part_1\src\configuration\.env
 
 example:
 ```
@@ -102,7 +102,7 @@ CLOUDINARY_API_SECRET=<secret>
 ```
 
 8. створи/онови файл конфігурації для `part 2`
-%GitHub%\goit-web-hw-13\part_2\configuration\config.env
+%GitHub%\goit-web-hw-13\part_2\configuration\.env
 
 example:
 ```
